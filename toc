@@ -1,0 +1,10 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="discovery-sf" audience="service" href="/docs/services/discovery-sf/connect.html"}
+Discovery Sources
+
+    {: .navgroup id="howto"}
+    connect.md
+    performance.md
+    {: .navgroup-end}
