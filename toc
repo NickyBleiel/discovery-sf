@@ -1,10 +1,20 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery-sf" audience="service" href="/docs/services/discovery-sf/connect.html"}
-Discovery Sources
+{: .toc subcollection="discovery-sf" audience="service" href="/docs/services/discovery-sf/index.html"}
+Discovery for Salesforce
+
+    {: .navgroup id="learn"}
+    index.md
+    {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    authentication.md
     connect.md
+    configuration.md
     performance.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    release-notes.md
     {: .navgroup-end}
