@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-07-09"
 
 ---
 
@@ -30,17 +30,17 @@ The {{site.data.keyword.discoveryshort}} service pulls documents from the data s
 
 The following applies to all data sources:
 
-- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box.
+- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling.
 - The individual document file size limit for Salesforce, Microsoft SharePoint Online, and Box is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This information can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring those data sources.
--  Crawling a data source will use the resources (API calls) of the data source. The number of calls depends on the number of documents crawled. An appropriate level of service (for example, Enterprise) must be obtained for the data source, and the source system administrator consulted.
+-  Crawling a data source will use the resources (API calls) of that data source. The number of calls depends on the number of documents crawled. Consult with the source system administrator before starting a crawl. Also confirm that you have the appropriate level of service - for example, Enterprise Salesforce. See [Prerequisites and browser support](/docs/services/discovery-sf/index.html#prereqs).
 -  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
    -  Microsoft Word
    -  PDF
    -  HTML
    -  JSON
--  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is synced (re-crawled), new documents are added, updated document are modified to the current version, and documents deleted in the original data source remain in the collection as the version last stored.
+-  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is synced (re-crawled), new documents are added, updated documents are modified to the current version, and documents deleted in the original data source remain in the collection as the version last stored.
 - If you modify anything on the Salesforce, Microsoft SharePoint Online, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
 
 ## Box
@@ -103,14 +103,10 @@ When adding documents to your collection, remember :
 
 - The maximum file size that can be uploaded is 50MB.
 - When creating a collection, you can select the document language (English is the default). See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/language-support.html){: new_window} for the list of languages. Do not mix languages within the same collection.
-- By default, the documents in your collection will be converted using the configuration file provided, which is named **Default Configuration**. You should create a custom configuration file for your {{site.data.keyword.discoveryshort}} collection and normalize the fields so that your configuration includes the following fields:
-  - `application_id` - The source of this file. Will default to `byod`.
-  - `application_sub_type` - The file type. Will default to `document`.
-  - `title` - The name of the document.
-  - `last_modified` - The date this file was modified.
-
-    For information about creating a configuration file, see [Custom configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/building.html#custom-configuration){: new_window}.
-- When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you decide later that you would like to switch your collection to a different configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration file. All documents uploaded after switching the configuration file will use the new configuration file. If you want the entire collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents.
+- By default, the documents in your collection will be converted using the configuration file provided, which is named **Default Configuration**. If you need to create a custom configuration file, see [Custom configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/building.html#custom-configuration){: new_window}.
+- When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you later decide to switch your collection to a different configuration file, all documents uploaded from that point forward will use the new configuration file. That means that the documents already uploaded to that collection will remain converted by the original configuration file unless you do one of the following: 
+  - Create a new collection, select the new configuration file, then re-upload all of your documents.
+  - Retain your existing collection, switch to the new configuration file, delete all of the documents converted by the original configuration file, then re-upload them.
 
 The following limits apply when uploading documents:
 
@@ -118,6 +114,8 @@ The following limits apply when uploading documents:
 - 105 in-flight documents in Advanced plans
     
 These limits are subject to change. 
+
+If you reach your in-flight limit, you should slow down the rate of your ingestion. One option would be to add an automated back-off mechanism with retries.
 
 ## Labeling and deleting documents
 {:# source_customer_id}
