@@ -39,7 +39,7 @@ If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce cont
 
 The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}} for Salesforce.
 
-- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box. 
+- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling. 
 - The individual document file size limit for Salesforce, Microsoft SharePoint Online, and Box is 10MB.
-- Premium Plans are not available at this time for {{site.data.keyword.discoveryfull}} for Salesforce.
+- Premium and Dedicated Plans are not available at this time for {{site.data.keyword.discoveryfull}} for Salesforce.
 - The Performance dashboard is not available in Premium and Dedicated environments.
