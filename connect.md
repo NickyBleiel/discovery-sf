@@ -104,9 +104,9 @@ When adding documents to your collection, remember :
 - The maximum file size that can be uploaded is 50MB.
 - When creating a collection, you can select the document language (English is the default). See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/language-support.html){: new_window} for the list of languages. Do not mix languages within the same collection.
 - By default, the documents in your collection will be converted using the configuration file provided, which is named **Default Configuration**. If you need to create a custom configuration file, see [Custom configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/building.html#custom-configuration){: new_window}.
-- When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you later decide to switch your collection to a different configuration file, all documents uploaded from that point forward will use the new configuration file. That means that the documents already uploaded to that collection will remain converted by the original configuration file unless you do one of the following: 
+- When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you later decide to switch your collection to a different configuration file, any documents that are not re-uploaded remain in the collection converted by the original configuration file unless you do one of the following:
   - Create a new collection, select the new configuration file, then re-upload all of your documents.
-  - Retain your existing collection, switch to the new configuration file, delete all of the documents converted by the original configuration file, then re-upload them.
+  - Retain your existing collection, switch to the new configuration file, delete any documents that you can't re-upload.
 
 The following limits apply when uploading documents:
 
@@ -115,7 +115,7 @@ The following limits apply when uploading documents:
     
 These limits are subject to change. 
 
-If you reach your in-flight limit, you should slow down the rate of your ingestion. One option would be to add an automated back-off mechanism with retries.
+When using the {{site.data.keyword.discoveryshort}} service, uploading in-flight represents the document being uploaded and processed before it is added to the collection.
 
 ## Labeling and deleting documents
 {:# source_customer_id}
