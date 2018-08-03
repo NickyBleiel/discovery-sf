@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-08-02"
 
 
 ---
@@ -33,9 +33,13 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes are available.
 
-### General Availability release, 29 June 2018
-
 If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce contact your IBM representative for more information.
+
+### 2 August 2018
+
+- {{site.data.keyword.discoveryfull}} for Salesforce now supports English, Spanish, German, Italian, Portuguese, French, Arabic, Korean, and Japanese language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. 
+
+### General Availability release, 29 June 2018 
 
 The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}} for Salesforce.
 
