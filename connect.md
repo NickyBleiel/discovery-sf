@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-09"
+lastupdated: "2018-08-17"
 
 ---
 
@@ -30,7 +30,6 @@ The {{site.data.keyword.discoveryshort}} service pulls documents from the data s
 
 The following applies to all data sources:
 
-- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling.
 - The individual document file size limit for Salesforce, Microsoft SharePoint Online, and Box is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This information can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring those data sources.
@@ -93,6 +92,10 @@ The following credentials are required to connect to a SharePoint Online source;
 -  **Site collection path** - The `site_collection.path` of the source that these credentials connect to.
 
 When identifying credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
+
+Other items to note when crawling Microsoft SharePoint Online:
+
+-  When crawling SharePoint, you will need to have a list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} lets you browse and select which content to crawl. To crawl your entire SharePoint Online site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
 
 ## Create your own data source
 {: #private}
