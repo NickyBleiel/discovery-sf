@@ -41,6 +41,7 @@ If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce cont
 
 ### General Availability release, 29 June 2018
 
+
 The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}} for Salesforce.
 
 - {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling. 
