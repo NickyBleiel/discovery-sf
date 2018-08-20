@@ -39,7 +39,8 @@ If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce cont
 
 - {{site.data.keyword.discoveryfull}} for Salesforce now supports English, Spanish, German, Italian, Portuguese, French, Arabic, Korean, and Japanese language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. 
 
-### General Availability release, 29 June 2018 
+### General Availability release, 29 June 2018
+
 
 The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}} for Salesforce.
 
