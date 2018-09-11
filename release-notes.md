@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-09-10"
 
 
 ---
@@ -35,16 +35,22 @@ The following new features and changes are available.
 
 If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce contact your IBM representative for more information.
 
+### 10 September 2018
+{: #10sept18}
+
+- You can now create search filters for each of your data sources. See [Configuring your app](/docs/services/discovery-sf/configuration.html#configureapp) for more information.
+
 ### 2 August 2018
+{: #2aug18}
 
 - {{site.data.keyword.discoveryfull}} for Salesforce now supports English, Spanish, German, Italian, Portuguese, French, Arabic, Korean, and Japanese language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. 
 
 ### General Availability release, 29 June 2018
-
+{: #ga}
 
 The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}} for Salesforce.
 
-- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling. 
+- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery-sf/release-notes.html#2aug18)
 - The individual document file size limit for Salesforce, Microsoft SharePoint Online, and Box is 10MB.
 - Premium and Dedicated Plans are not available at this time for {{site.data.keyword.discoveryfull}} for Salesforce.
 - The Performance dashboard is not available in Premium and Dedicated environments.
