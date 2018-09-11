@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -28,7 +28,9 @@ If you choose to **Edit Data** or **Add Source** you will be returned to the app
 
 This is the end of the {{site.data.keyword.discoveryfull}} for Salesforce setup. You can now utilize your new app in the Salesforce Lightning App Builder. Click **Lightning App Builder** to add the {{site.data.keyword.discoveryfull}} for Salesforce app to your page and configure it further. 
 
-To edit or add data sources, view the Performance dashboard, change your {{site.data.keyword.discoveryshort}} credentials, or view the {{site.data.keyword.discoveryfull}} for Salesforce documentation from the **Lightning App Builder**, click the **Configuration** tab to open the {{site.data.keyword.discoveryfull}} Configuration screen. 
+To edit or add data sources, configure search filters, view the Performance dashboard, change your {{site.data.keyword.discoveryshort}} credentials, or view the {{site.data.keyword.discoveryfull}} for Salesforce documentation from the **Lightning App Builder**, click the **Configuration** tab to open the {{site.data.keyword.discoveryfull}} Configuration screen. 
+
+If you would like to configure search filters for your app, and no data sources appear in your **Search filters** drop-down, verify that you have enabled one or more collections in the **Data Sources** section of the {{site.data.keyword.discoveryfull}} Configuration screen. You can rename and delete the filters that you add for each data source if you wish.
 
 ## Assigning user permissions
 

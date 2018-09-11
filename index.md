@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-09"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -25,10 +25,10 @@ This setup assistant will guide you through the steps of connecting to the data 
 
 Your data will be stored on the IBM Cloud, within collections located in your {{site.data.keyword.discoveryshort}} service. You can connect to and import data from Salesforce, Microsoft SharePoint Online, and Box, as well as set up a synchronization schedule so your data is always up-to-date. If you have other data you would like to use that is not stored in those data sources, you can create a collection and upload those documents to {{site.data.keyword.discoveryshort}}. All of these data sources will be used by the {{site.data.keyword.discoveryfull}} app in Salesforce.
 
-An overview of the steps to setup a {{site.data.keyword.discoveryfull}} for Salesforce app follows. If you already have an IBM Cloud account or {{site.data.keyword.discoveryshort}} instance in the US East region, you are not required to create new ones.
+An overview of the steps to setup a {{site.data.keyword.discoveryfull}} for Salesforce app follows. If you already have an IBM Cloud account or {{site.data.keyword.discoveryshort}} instance in the US East or Sydney region, you are not required to create new ones.
 
 - Create an [IBM Cloud account](/docs/services/discovery-sf/authentication.html#cloud) (or log into your existing account).
-- Create an instance of the {{site.data.keyword.discoveryshort}} service in the **US East** region (or use an instance you already have in that region).
+- Create an instance of the {{site.data.keyword.discoveryshort}} service in the **US East** or **Sydney** region (or use an instance you already have in one of those regions). **Note:** If you already have an IBM Cloud account, {{site.data.keyword.discoveryfull}} for Salesforce will automatically create an instance of the {{site.data.keyword.discoveryshort}} service for you using a Lite plan.
 - [Connect to the data](/docs/services/discovery-sf/connect.html) you have stored in Salesforce, Microsoft SharePoint Online, or Box and specify how often you'd like that data to be updated. You also have the option to create your own data source.
 - [Configure](/docs/services/discovery-sf/configuration.html) your new {{site.data.keyword.discoveryfull}} for Salesforce app.  
 
@@ -46,7 +46,7 @@ Prerequisites for {{site.data.keyword.discoveryfull}} for Salesforce:
 - To connect to Salesforce data: Enterprise Salesforce using the Lightning platform
 
 **Notes for existing {{site.data.keyword.discoveryshort}} service users:** 
-- The {{site.data.keyword.discoveryshort}} service now supports token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service. If you have an existing {{site.data.keyword.discoveryshort}} instance on US East that you wish to use for {{site.data.keyword.discoveryfull}} for Salesforce, you must migrate it first. See [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){: new_window}.
+- The {{site.data.keyword.discoveryshort}} service now supports token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service. If you have an existing {{site.data.keyword.discoveryshort}} instance on US East or Sydney that you wish to use for {{site.data.keyword.discoveryfull}} for Salesforce, you must migrate it first. See [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){: new_window}.
 - Existing {{site.data.keyword.discoveryshort}} collections can't be used with {{site.data.keyword.discoveryfull}} for Salesforce.
 
 For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/overview/prereqs.html#prereqs){: new_window}.
