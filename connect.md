@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-17"
+lastupdated: "2018-09-14"
 
 ---
 
@@ -47,7 +47,26 @@ The following applies to all data sources:
 
 When connecting to a Box source, verify that the instance is an Enterprise plan or higher.
 
-The following credentials are required to connect to a Box source; request them from your Box administrator:
+Setting up a Box account to work with {{site.data.keyword.discoveryshort}}:
+
+1.  Create a new Box custom application at `https://app.box.com/developers/console` (use your company's Box URL).
+1.  Then do one of the following:
+    - Select **Application access** of `Enterprise`, then continue by using existing managed users.
+       OR
+    - Select **Application access** of `Application` and then create an `Application User` with the newly created application using the [Box API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/reference#create-app-user){: new_window}.
+1.  Enable the following **Application Scopes**:
+    - `Read and Write All Folders Stored In Box`
+    - `Manage Users`
+1.  Enable the following **Advanced Features**
+    - `Perform Actions as Users`
+    - `Generate User Access Tokens`
+1.  Have the administrator authorize your application client id `https://app.box.com/master/settings/openbox` by typing the `Client ID` from `https://app.box.com/developers/console` into the `API Key` field.
+1.  Generate the `public/private keypair` (will download to your computer).
+1.  Open the downloaded file and copy/paste the fields into {{site.data.keyword.discoveryshort}}. Remove the trailing newline `\n` at the end of the `privateKey` when copying into  {{site.data.keyword.discoveryshort}}.
+
+**Note:** {{site.data.keyword.discoveryshort}} does not support the custom application crawling as  itself (you cannot impersonate yourself). 
+
+The following credentials are required to connect to a Box source, they should be obtained from your Box administrator (unless you have already obtained them by setting up a Box custom application using the previous steps):
 
 -  **Client ID** - The `client_id` of the source that these credentials connect to.
 -  **Client Secret** - The `client_secret` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials. 
