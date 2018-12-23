@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-25"
+lastupdated: "2018-12-21"
 
 ---
 
@@ -20,13 +20,15 @@ lastupdated: "2018-11-25"
 # Connecting to Data Sources
 {: #sources}
 
-With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, and Microsoft SharePoint Online data sources and import documents into {{site.data.keyword.discoveryshort}} collections. Each data source is stored in a separate {{site.data.keyword.discoveryshort}} collection. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you have want to utilize additional documents that are not stored in Salesforce, Box, or Microsoft SharePoint Online.
+With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, and Microsoft SharePoint 2016 On-Premise data sources and import documents into {{site.data.keyword.discoveryshort}} collections. Each data source is stored in a separate {{site.data.keyword.discoveryshort}} collection. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you have want to utilize additional documents that are not stored in Salesforce, Box, Microsoft SharePoint Online, and Microsoft SharePoint 2016 On-Premise.
 
 The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you from the following data sources are crawled by the {{site.data.keyword.discoveryshort}} service:
 
 -  [Box](/docs/services/discovery-sf/connect.html#connectbox)
 -  [Salesforce](/docs/services/discovery-sf/connect.html#connectsf)
 -  [Microsoft SharePoint Online](/docs/services/discovery-sf/connect.html#connectsp)
+-  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery-sf/connect.html#connectsp_op)
+-  [Web Crawl](/docs/services/discovery-sf/connect.html#connectwebcrawl) (beta)
 
 The following applies to all data sources:
 
@@ -41,6 +43,7 @@ The following applies to all data sources:
    -  JSON
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is synced (re-crawled), new documents are added, updated documents are modified to the current version, and documents deleted in the original data source remain in the collection as the version last stored.
 - If you modify anything on the Salesforce, Microsoft SharePoint Online, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
+- If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
 
 ## Box
 {: #connectbox}
@@ -162,6 +165,55 @@ When identifying credentials, it might be useful to consult the [Microsoft Share
 Other items to note when crawling Microsoft SharePoint Online:
 
 -  When crawling SharePoint, you will need to have a list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} lets you browse and select which content to crawl. To crawl your entire SharePoint Online site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+
+## Web Crawl
+{: #connectwebcrawl}
+
+This beta feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
+
+-  `Sync my data` - You can choose to sync daily, weekly, or monthly. Weekly syncs will occur every Sunday. Monthly syncs will occur on the first Sunday of every month.
+-  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery/language-support.html#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
+-  `URL group to sync` - Enter your URL and click the plus sign to add it to the URL group. To specify the **Crawl settings** for this URL group, click the **Cog** icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). 
+
+For this beta release, the number of web pages crawled will be limited, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
+{: note}
+
+If you require different **Crawl settings** for other URLs, click **Add URL group** and create a new group. You can create as many URL groups as you need.
+{: tip}
+
+## Installing IBM Secure Gateway for on-premise data 
+{: #gateway}
+
+To connect to an on-premise data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premise data source, you won't need to repeat this process.
+
+1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
+1.  Select the data source that you want to connect to. When you select an on-premise data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
+1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
+1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/SecureGateway/securegateway_install.html#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
+1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
+1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `appconnmssharep` and port: `80`.
+1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
+
+After the connection is successful you can begin entering the credentials for your on-premise data source.
+
+## SharePoint 2016 On-Premise
+{: #connectsp_op}
+
+Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premise data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
+{: note}
+
+The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
+
+-  `username` - The `client_id` of the source that these credentials connect to.
+-  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
+-  `web_application_url` - The SharePoint 2016 `web_application_url`; for example, https://sharepointwebapp.com:8443. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
+-  `domain` - The `domain` of the SharePoint 2016 account.
+
+When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
+
+Other items to note when crawling Microsoft SharePoint 2016:
+
+-  When crawling SharePoint 2016, you will need to have a list of SharePoint site collection paths that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl. To crawl your entire SharePoint 2016 site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
 
 ## Create your own data source
 {: #private}
