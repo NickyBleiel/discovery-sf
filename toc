@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery-sf" audience="service" href="/docs/services/discovery-sf/index.html"}
+{: .toc subcollection="discovery-sf" audience="service" href="/docs/services/discovery-sf/index.html" path="services/discovery-sf"}
 Discovery for Salesforce
 
     {: .navgroup id="learn"}
