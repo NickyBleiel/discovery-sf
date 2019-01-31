@@ -1,21 +1,31 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-29"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-01"
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Viewing metrics and improving query results with the Performance dashboard
 {: #performance}
@@ -38,9 +48,9 @@ In this section of the dashboard, you can review queries that returned zero resu
 ## Bring relevant results to the top by training your data
 {: #relevancy}
 
-In this section, you can train your collections to improve the relevance of natural language query results. Click the **View all and perform relevancy training** button to get started. Then see [Adding queries and rating the relevancy of results ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/train-tooling.html#results){: new_window} for additional instructions.
+In this section, you can train your collections to improve the relevance of natural language query results. Click the **View all and perform relevancy training** button to get started. Then see [Adding queries and rating the relevancy of results ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/train-tooling.html#results){: new_window} for additional instructions.
 
-For more about training requirements and options, see [Improving result relevance with the tooling ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/train-tooling.html){: new_window}.
+For more about training requirements and options, see [Improving result relevance with the tooling ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/train-tooling.html){: new_window}.
 
 ## Query overview
 {: #overview}
