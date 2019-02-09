@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-21"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-08"
 
 
 ---
@@ -44,6 +44,11 @@ IBM will release services, features, and language support that are classified as
 The following new features and changes are available.
 
 If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce contact your IBM representative for more information.
+
+## 8 February 2019
+{: #8feb19}
+
+- Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery-sf/connect.html#connectwebcrawl) for more information.
 
 ## 21 December 2018
 {: #21dec18}
