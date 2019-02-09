@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -30,7 +30,7 @@ lastupdated: "2019-02-01"
 # Connecting to Data Sources
 {: #sources}
 
-With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, and Microsoft SharePoint 2016 On-Premise data sources and import documents into {{site.data.keyword.discoveryshort}} collections. Each data source is stored in a separate {{site.data.keyword.discoveryshort}} collection. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you have want to utilize additional documents that are not stored in Salesforce, Box, Microsoft SharePoint Online, and Microsoft SharePoint 2016 On-Premise.
+With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise data sources and import documents into {{site.data.keyword.discoveryshort}} collections. Each data source is stored in a separate {{site.data.keyword.discoveryshort}} collection. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you have want to utilize additional documents that are not stored in Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise.
 
 The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you from the following data sources are crawled by the {{site.data.keyword.discoveryshort}} service:
 
@@ -39,10 +39,11 @@ The {{site.data.keyword.discoveryshort}} service pulls documents from the data s
 -  [Microsoft SharePoint Online](/docs/services/discovery-sf/connect.html#connectsp)
 -  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery-sf/connect.html#connectsp_op)
 -  [Web Crawl](/docs/services/discovery-sf/connect.html#connectwebcrawl) (beta)
+-  [IBM Cloud Object Storage](/docs/services/discovery-sf/connect.html#connectcos) 
 
 The following applies to all data sources:
 
-- The individual document file size limit for Salesforce, Microsoft SharePoint Online, and Box is 10MB.
+- The individual document file size limit for Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Box is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This information can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring those data sources.
 -  Crawling a data source will use the resources (API calls) of that data source. The number of calls depends on the number of documents crawled. Consult with the source system administrator before starting a crawl. Also confirm that you have the appropriate level of service - for example, Enterprise Salesforce. See [Prerequisites and browser support](/docs/services/discovery-sf/index.html#prereqs).
@@ -52,7 +53,7 @@ The following applies to all data sources:
    -  HTML
    -  JSON
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is synced (re-crawled), new documents are added, updated documents are modified to the current version, and documents deleted in the original data source remain in the collection as the version last stored.
-- If you modify anything on the Salesforce, Microsoft SharePoint Online, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
+- If you modify anything on the Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, Microsoft SharePoint 2016 On-Premise, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
 - If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
 
 ## Box
@@ -228,6 +229,22 @@ When identifying the credentials, it might be useful to consult the [Microsoft S
 Other items to note when crawling Microsoft SharePoint 2016:
 
 -  When crawling SharePoint 2016, you will need to have a list of SharePoint site collection paths that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl. To crawl your entire SharePoint 2016 site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+
+## IBM Cloud Object Storage
+{: #connectcos}
+
+When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
+
+-  `endpoint` - The `endpoint` used to interact with IBM Cloud Object Storage data.
+-  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
+-  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
+
+After this information is entered, you can choose how often you'd like to sync your data and select the buckets you want to sync to.
+
+Other items to note when crawling IBM Cloud Object Storage:
+
+-  This connector doesn't support crawling private endpoints.
+-  There is a slight performance issue if all buckets are selected. In this case, there may be a delay before the documents complete indexing.
 
 ## Create your own data source
 {: #private}
