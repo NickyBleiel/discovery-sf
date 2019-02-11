@@ -43,6 +43,7 @@ To edit or add data sources, configure search filters, view the Performance dash
 If you would like to configure search filters for your app, and no data sources appear in your **Search filters** drop-down, verify that you have enabled one or more collections in the **Data Sources** section of the {{site.data.keyword.discoveryfull}} Configuration screen. You can rename and delete the filters that you add for each data source if you wish.
 
 ## Assigning user permissions
+{: #permissions}
 
 When you configure the {{site.data.keyword.discoveryfull}} for Salesforce app: 
 

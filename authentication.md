@@ -28,6 +28,7 @@ lastupdated: "2019-02-01"
 {:go: .ph data-hd-programlang='go'}
 
 # Connecting to the IBM Cloud and Watson Discovery
+{: #connecting}
 
 For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview/prereqs.html#prereqs){: new_window}.
 

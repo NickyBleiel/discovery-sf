@@ -270,6 +270,6 @@ These limits are subject to change.
 When using the {{site.data.keyword.discoveryshort}} service, uploading in-flight represents the document being uploaded and processed before it is added to the collection.
 
 ## Labeling and deleting documents
-{:# source_customer_id}
+{: #source_customer_id}
 
 For information about GDPR, as well as assigning and deleting `customer_ ID` labels, see [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/information-security.html){: new_window} and [Specifying a customer_id ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/connect.html#specifying-a-customer_id-){: new_window}.

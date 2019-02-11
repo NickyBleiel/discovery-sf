@@ -28,6 +28,7 @@ lastupdated: "2019-02-08"
 {:go: .ph data-hd-programlang='go'}
 
 # Welcome to Watson Discovery for Salesforce
+{: #welcome}
 
 The {{site.data.keyword.discoveryfull}} for Salesforce app is an AI-powered insight engine for Salesforce Service Cloud users. 
 
