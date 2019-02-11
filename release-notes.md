@@ -29,6 +29,7 @@ lastupdated: "2019-02-08"
 {:go: .ph data-hd-programlang='go'}
 
 # Release notes
+{: #release-notes}
 
 The release notes provide information about changes to {{site.data.keyword.discoveryfull}} for Salesforce since the previous release.
 {: shortdesc}
