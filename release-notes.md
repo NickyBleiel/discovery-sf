@@ -49,7 +49,7 @@ If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce cont
 ## 8 February 2019
 {: #8feb19}
 
-- Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery-sf/connect.html#connectwebcrawl) for more information.
+- Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery-sf/connect.html#connectcos) for more information.
 
 ## 21 December 2018
 {: #21dec18}

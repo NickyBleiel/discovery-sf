@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-02-27"
 
 ---
 
@@ -30,7 +30,9 @@ lastupdated: "2019-02-08"
 # Connecting to Data Sources
 {: #sources}
 
-With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise data sources and import documents into {{site.data.keyword.discoveryshort}} collections. Each data source is stored in a separate {{site.data.keyword.discoveryshort}} collection. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you have want to utilize additional documents that are not stored in Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise.
+With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise data sources (or do a web crawl) and import documents into {{site.data.keyword.discoveryshort}} collections. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you want to utilize additional documents not stored in those data sources. 
+
+If using the {{site.data.keyword.discoveryshort}} tooling, each collection can be configured to use a single data source; if using the API, you can send documents from multiple data sources into a single collection.
 
 The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you from the following data sources are crawled by the {{site.data.keyword.discoveryshort}} service:
 
@@ -43,27 +45,33 @@ The {{site.data.keyword.discoveryshort}} service pulls documents from the data s
 
 The following applies to all data sources:
 
-- The individual document file size limit for Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Box is 10MB.
+- The individual document file size limit for Salesforce, Microsoft SharePoint Online, Microsoft SharePoint 2016, IBM Cloud Object Storage, Web Crawl, and Box is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This information can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring those data sources.
--  Crawling a data source will use the resources (API calls) of that data source. The number of calls depends on the number of documents crawled. Consult with the source system administrator before starting a crawl. Also confirm that you have the appropriate level of service - for example, Enterprise Salesforce. See [Prerequisites and browser support](/docs/services/discovery-sf/index.html#prereqs).
+-  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. Also confirm that you have the appropriate level of service - for example, Enterprise Salesforce - and that the source system administrator is consulted. See [Prerequisites and browser support](/docs/services/discovery-sf/index.html#prereqs).
 -  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
-   -  Microsoft Word
-   -  PDF
-   -  HTML
-   -  JSON
+    -  Existing collections created specifically for {{site.data.keyword.discoveryfull}} for Salesforce before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/sdu.html#22jan19){: new_window}: Microsoft Word, PDF, HTML, JSON
+    -  Collections created after the release of SDU:
+       -  Lite plans: PDF, Word, PowerPoint, Excel
+       -  Advanced plans: PDF, Word, PowerPoint, Excel, PNG, TIFF, JPG
+    Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted. JSON and HTML documents are supported by {{site.data.keyword.discoveryshort}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API.
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is synced (re-crawled), new documents are added, updated documents are modified to the current version, and documents deleted in the original data source remain in the collection as the version last stored.
-- If you modify anything on the Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, Microsoft SharePoint 2016 On-Premise, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
-- If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
+-  If you modify anything on the Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, Microsoft SharePoint 2016 On-Premise, web crawl, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
+-  If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
+-  Synchronization options are:
+    -  Every five minutes: runs every five minutes
+    -  Hourly: runs every hour
+    -  Daily: runs every day between the hours of 00:00 and 06:00 in the specified time zone
+    -  Weekly: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
+    -  Monthly: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone  
 
 ## Box
 {: #connectbox}
 
 You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
--  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery/connect.html#applevelbox) is recommended. You will need an administrator to approve your application.
-
--  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery/connect.html#entlevelbox) is recommended.
+-  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery-sf/connect.html#applevelbox) is recommended. You will need an administrator to approve your application.
+-  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery-sf/connect.html#entlevelbox) is recommended.
 
 **Note:** The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
 
@@ -125,8 +133,11 @@ The next few steps will require assistance from the Administrator of your organi
     - `Generate User Access Tokens` 
 1.  Click the **Save Changes** button.
 
-Refresh is only supported with Enterprise level access.
+`Refresh` is only supported with Enterprise level access.
 {: note}
+
+If you change your Box App settings, `Reauthorize` your App so the changes take effect.
+{: tip}
 
 The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
 
@@ -161,7 +172,7 @@ When identifying credentials, it might be useful to consult the [Salesforce deve
 
 Other items to note when crawling Salesforce:
 
--  Knowledge Articles are only crawled if their **version** is `published` and their languages is `en-us`.
+-  Knowledge Articles are only crawled if their **version** is `published` and their language is `en-us`.
 
 ## Microsoft SharePoint Online
 {: #connectsp}
@@ -170,7 +181,7 @@ When connecting to a Microsoft SharePoint Online source, verify that the instanc
 
 The following credentials are required to connect to a SharePoint Online source; request them from your SharePoint administrator:
 
--  **Username** - The `client_id` of the source that these credentials connect to.
+-  **Username** - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
 -  **Password** - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
 -  **Organization URL** - The `organization_url` of the source that these credentials connect to.
 -  **Site collection path** - The `site_collection.path` of the source that these credentials connect to.
@@ -179,16 +190,17 @@ When identifying credentials, it might be useful to consult the [Microsoft Share
 
 Other items to note when crawling Microsoft SharePoint Online:
 
--  When crawling SharePoint, you will need to have a list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} lets you browse and select which content to crawl. To crawl your entire SharePoint Online site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+- To crawl SharePoint Online, the `Crawl User` account must have `SiteCollection Administrator` permissions.
+-  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## Web Crawl
 {: #connectwebcrawl}
 
 This beta feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
--  `Sync my data` - You can choose to sync daily, weekly, or monthly. Weekly syncs will occur every Sunday. Monthly syncs will occur on the first Sunday of every month.
--  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery/language-support.html#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
--  `URL group to sync` - Enter your URL and click the plus sign to add it to the URL group. To specify the **Crawl settings** for this URL group, click the **Cog** icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). 
+-  **Sync my data** - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly.  
+-  **Select language** - Choose the language of the websites from the list of supported languages. See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/language-support.html#supported-languages){: new_window} for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
+-  **URL group to sync** - Enter your URL and click the plus sign to add it to the URL group. To specify the **Crawl settings** for this URL group, click the **Cog** icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). 
 
 For this beta release, the number of web pages crawled will be limited, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
 {: note}
@@ -219,25 +231,26 @@ Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premis
 
 The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
 
--  `username` - The `client_id` of the source that these credentials connect to.
--  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
--  `web_application_url` - The SharePoint 2016 `web_application_url`; for example, https://sharepointwebapp.com:8443. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
--  `domain` - The `domain` of the SharePoint 2016 account.
+-  **Username** - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
+-  **Password** - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
+-  **Web Application Url** - The SharePoint 2016 `web_application_url`; for example, https://sharepointwebapp.com:8443. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
+-  **Domain** - The `domain` of the SharePoint 2016 account.
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
 
 Other items to note when crawling Microsoft SharePoint 2016:
 
--  When crawling SharePoint 2016, you will need to have a list of SharePoint site collection paths that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl. To crawl your entire SharePoint 2016 site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+- To crawl SharePoint 2016, the `Crawl User` account must have `SiteCollection Administrator` permissions.
+-  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## IBM Cloud Object Storage
 {: #connectcos}
 
 When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
 
--  `endpoint` - The `endpoint` used to interact with IBM Cloud Object Storage data.
--  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
--  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
+-  **Endpoint** - The `endpoint` used to interact with IBM Cloud Object Storage data.
+-  **Access key id** - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
+-  **Secret access key** - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
 
 After this information is entered, you can choose how often you'd like to sync your data and select the buckets you want to sync to.
 
@@ -249,16 +262,13 @@ Other items to note when crawling IBM Cloud Object Storage:
 ## Create your own data source
 {: #private}
 
-If you have Microsoft Word, PDF, HTML, or JSON documents that are not stored in Salesforce, Box, or Microsoft SharePoint Online, you can create your own {{site.data.keyword.discoveryshort}} collection and manually upload those documents. Click **Upload documents** under **Select a data source** to get started.
+If you have documents that are not stored in Salesforce, Box, Microsoft SharePoint Online, SharePoint 2016, or available using Web Crawl, you can create your own {{site.data.keyword.discoveryshort}} collection and manually upload those documents. Click **Upload documents** under **Select a data source** to get started.
 
-When adding documents to your collection, remember :
+When creating your collection, remember:
 
 - The maximum file size that can be uploaded is 50MB.
 - When creating a collection, you can select the document language (English is the default). See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/language-support.html){: new_window} for the list of languages. Do not mix languages within the same collection.
-- By default, the documents in your collection will be converted using the configuration file provided, which is named **Default Configuration**. If you need to create a custom configuration file, see [Custom configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/building.html#custom-configuration){: new_window}.
-- When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you later decide to switch your collection to a different configuration file, any documents that are not re-uploaded remain in the collection converted by the original configuration file unless you do one of the following:
-  - Create a new collection, select the new configuration file, then re-upload all of your documents.
-  - Retain your existing collection, switch to the new configuration file, delete any documents that you can't re-upload.
+- You will configure your documents using [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/sdu.html){: new_window}.
 
 The following limits apply when uploading documents:
 
