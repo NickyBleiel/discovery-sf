@@ -4,6 +4,8 @@ copyright:
   years: 2015, 2018, 2019
 lastupdated: "2019-02-01"
 
+subcollection: discovery-sf
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -30,7 +32,7 @@ lastupdated: "2019-02-01"
 # Connecting to the IBM Cloud and Watson Discovery
 {: #connecting}
 
-For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview/prereqs.html#prereqs){: new_window}.
+For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform#prereqs){: new_window}.
 
 ## Getting your IBM Cloud credentials and creating an instance of Discovery
 {: #cloud}
@@ -41,9 +43,9 @@ To sign up for a free {{site.data.keyword.Bluemix}} account, go to the [{{site.d
 
 When creating an instance of {{site.data.keyword.discoveryshort}}, choose Washington, DC (US East) or Sydney (au-syd) as your region. 
 
-If you do not have an existing {{site.data.keyword.discoveryfull}} service plan, see [Discovery pricing plans ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/pricing-details.html){: new_window} to review the benefits and limits of each plan. {{site.data.keyword.discoveryfull}} for Salesforce is not supported on Premium and Dedicated plans.
+If you do not have an existing {{site.data.keyword.discoveryfull}} service plan, see [Discovery pricing plans ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans){: new_window} to review the benefits and limits of each plan. {{site.data.keyword.discoveryfull}} for Salesforce is not supported on Premium and Dedicated plans.
 
-For additional {{site.data.keyword.Bluemix}} resources, see [{{site.data.keyword.Bluemix}} Platform Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview/ibm-cloud.html#overview){: new_window}.   
+For additional {{site.data.keyword.Bluemix}} resources, see [{{site.data.keyword.Bluemix}} Platform Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview?topic=overview-whatis-platform#overview){: new_window}.   
 
 
 ## Connect to the Watson Discovery Service with your API Key
@@ -53,7 +55,7 @@ After you have created your {{site.data.keyword.discoveryshort}} instance, the s
 
 To navigate back to the dashboard at any time on the [{{site.data.keyword.Bluemix}} site ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/){: new_window}, click the menu icon on the top left and choose **Dashboard**.
 
-**Note:** If you have an existing {{site.data.keyword.discoveryshort}} instance on Washington, DC (US East) or Sydney (au-syd) that you wish to use for {{site.data.keyword.discoveryfull}} for Salesforce, you should migrate it first. See [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}. 
+**Note:** If you have an existing {{site.data.keyword.discoveryshort}} instance on Washington, DC (US East) or Sydney (au-syd) that you wish to use for {{site.data.keyword.discoveryfull}} for Salesforce, you should migrate it first. See [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: new_window}. 
 
 
     
