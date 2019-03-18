@@ -4,6 +4,8 @@ copyright:
   years: 2015, 2018, 2019
 lastupdated: "2019-02-01"
 
+subcollection: discovery-sf
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -35,10 +37,10 @@ The Performance dashboard can be used to view query metrics, as well as improve 
 You can access the Performance dashboard by clicking the **View data metrics** icon on the left. The dashboard is not available in Premium and Dedicated environments.
 
 There are two options to improve natural language query results:
-- [Fix queries with no results by adding more data](/docs/services/discovery-sf/performance.html#data)
-- [Bring relevant results to the top by training your data](/docs/services/discovery-sf/performance.html#relevancy)
+- [Fix queries with no results by adding more data](/docs/services/discovery-sf?topic=discovery-sf-performance#data)
+- [Bring relevant results to the top by training your data](/docs/services/discovery-sf?topic=discovery-sf-performance#relevancy)
 
-You can view data metrics in the [query overview](/docs/services/discovery-sf/performance.html#overview). 
+You can view data metrics in the [query overview](/docs/services/discovery-sf?topic=discovery-sf-performance#overview). 
 
 ## Fix queries with no results by adding more data
 {: #data}
@@ -48,9 +50,9 @@ In this section of the dashboard, you can review queries that returned zero resu
 ## Bring relevant results to the top by training your data
 {: #relevancy}
 
-In this section, you can train your collections to improve the relevance of natural language query results. Click the **View all and perform relevancy training** button to get started. Then see [Adding queries and rating the relevancy of results ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/train-tooling.html#results){: new_window} for additional instructions.
+In this section, you can train your collections to improve the relevance of natural language query results. Click the **View all and perform relevancy training** button to get started. Then see [Adding queries and rating the relevancy of results ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#results){: new_window} for additional instructions.
 
-For more about training requirements and options, see [Improving result relevance with the tooling ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/train-tooling.html){: new_window}.
+For more about training requirements and options, see [Improving result relevance with the tooling ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling){: new_window}.
 
 ## Query overview
 {: #overview}

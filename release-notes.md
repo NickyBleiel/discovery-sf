@@ -4,6 +4,7 @@ copyright:
   years: 2015, 2018, 2019
 lastupdated: "2019-02-08"
 
+subcollection: discovery-sf
 
 ---
 
@@ -49,20 +50,20 @@ If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce cont
 ## 8 February 2019
 {: #8feb19}
 
-- Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery-sf/connect.html#connectcos) for more information.
+- Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery-sf?topic=discovery-sf-sources#connectcos) for more information.
 
 ## 21 December 2018
 {: #21dec18}
 
-- Added the option to connect to and sync with Microsoft SharePoint 2016 On-Premise. This data source is not available in Dedicated environments. See [SharePoint 2016 On-Premise](/docs/services/discovery-sf/connect.html#connectsp_op) for more information.
-- Added the beta version of the Web Crawl connector, which can be used connect to, crawl, and sync with websites. This data source is not available in Dedicated environments. See [Web crawl](/docs/services/discovery-sf/connect.html#connectwebcrawl) for more information. A statement explaining beta features can be found [here](/docs/services/discovery-sf/release-notes.html#beta-features).
+- Added the option to connect to and sync with Microsoft SharePoint 2016 On-Premise. This data source is not available in Dedicated environments. See [SharePoint 2016 On-Premise](/docs/services/discovery-sf?topic=discovery-sf-sources#connectsp_op) for more information.
+- Added the beta version of the Web Crawl connector, which can be used connect to, crawl, and sync with websites. This data source is not available in Dedicated environments. See [Web crawl](/docs/services/discovery-sf?topic=discovery-sf-sources#connectwebcrawl) for more information. A statement explaining beta features can be found [here](/docs/services/discovery-sf?topic=discovery-sf-release-notes#beta-features).
 - The Microsoft SharePoint Online, Salesforce, and Box data sources are now available in Premium environments. They are not available in Dedicated environments.
 
 
 ### 10 September 2018
 {: #10sept18}
 
-- You can now create search filters for each of your data sources. See [Configuring your app](/docs/services/discovery-sf/configuration.html#configureapp) for more information.
+- You can now create search filters for each of your data sources. See [Configuring your app](/docs/services/discovery-sf?topic=discovery-sf-configureapp#configureapp) for more information.
 
 ### 2 August 2018
 {: #2aug18}
@@ -74,7 +75,7 @@ If you are interested in {{site.data.keyword.discoveryfull}} for Salesforce cont
 
 The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}} for Salesforce.
 
-- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery-sf/release-notes.html#2aug18)
+- {{site.data.keyword.discoveryfull}} for Salesforce supports only English language collections when connecting and syncing to Salesforce, Microsoft SharePoint Online, or Box with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery-sf?topic=discovery-sf-release-notes#2aug18)
 - The individual document file size limit for Salesforce, Microsoft SharePoint Online, and Box is 10MB.
 - Premium and Dedicated Plans are not available at this time for {{site.data.keyword.discoveryfull}} for Salesforce.
 - The Performance dashboard is not available in Premium and Dedicated environments.

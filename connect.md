@@ -4,6 +4,8 @@ copyright:
   years: 2015, 2018, 2019
 lastupdated: "2019-02-27"
 
+subcollection: discovery-sf
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -30,34 +32,39 @@ lastupdated: "2019-02-27"
 # Connecting to Data Sources
 {: #sources}
 
-With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise data sources (or do a web crawl) and import documents into {{site.data.keyword.discoveryshort}} collections. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf/connect.html#private) if you want to utilize additional documents not stored in those data sources. 
+With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Salesforce, Box, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 On-Premise data sources (or do a web crawl) and import documents into {{site.data.keyword.discoveryshort}} collections. You can also [create your own {{site.data.keyword.discoveryshort}} data source](/docs/services/discovery-sf?topic=discovery-sf-sources#private) if you want to utilize additional documents not stored in those data sources. 
 
 If using the {{site.data.keyword.discoveryshort}} tooling, each collection can be configured to use a single data source; if using the API, you can send documents from multiple data sources into a single collection.
 
 The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you from the following data sources are crawled by the {{site.data.keyword.discoveryshort}} service:
 
--  [Box](/docs/services/discovery-sf/connect.html#connectbox)
--  [Salesforce](/docs/services/discovery-sf/connect.html#connectsf)
--  [Microsoft SharePoint Online](/docs/services/discovery-sf/connect.html#connectsp)
--  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery-sf/connect.html#connectsp_op)
--  [Web Crawl](/docs/services/discovery-sf/connect.html#connectwebcrawl) (beta)
--  [IBM Cloud Object Storage](/docs/services/discovery-sf/connect.html#connectcos) 
+-  [Box](/docs/services/discovery-sf?topic=discovery-sf-sources#connectbox)
+-  [Salesforce](/docs/services/discovery-sf?topic=discovery-sf-sources#connectsf)
+-  [Microsoft SharePoint Online](/docs/services/discovery-sf?topic=discovery-sf-sources#connectsp)
+-  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery-sf?topic=discovery-sf-sources#connectsp_op)
+-  [Web Crawl](/docs/services/discovery-sf?topic=discovery-sf-sources#connectwebcrawl) (beta)
+-  [IBM Cloud Object Storage](/docs/services/discovery-sf?topic=discovery-sf-sources#connectcos) 
 
 The following applies to all data sources:
 
 - The individual document file size limit for Salesforce, Microsoft SharePoint Online, Microsoft SharePoint 2016, IBM Cloud Object Storage, Web Crawl, and Box is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This information can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring those data sources.
--  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. Also confirm that you have the appropriate level of service - for example, Enterprise Salesforce - and that the source system administrator is consulted. See [Prerequisites and browser support](/docs/services/discovery-sf/index.html#prereqs).
--  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
-    -  Existing collections created specifically for {{site.data.keyword.discoveryfull}} for Salesforce before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/sdu.html#22jan19){: new_window}: Microsoft Word, PDF, HTML, JSON
-    -  Collections created after the release of SDU:
-       -  Lite plans: PDF, Word, PowerPoint, Excel
-       -  Advanced plans: PDF, Word, PowerPoint, Excel, PNG, TIFF, JPG
-    Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted. JSON and HTML documents are supported by {{site.data.keyword.discoveryshort}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API.
+-  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. Also confirm that you have the appropriate level of service - for example, Enterprise Salesforce - and that the source system administrator is consulted. See [Prerequisites and browser support](/docs/services/discovery-sf?topic=discovery-sf-welcome#prereqs).
+-  The following file types can be ingested by {{site.data.keyword.discoveryshort}} for Salesforce, all other document types are ignored:
+   
+Collection | Lite plans | Advanced plans 
+---------------- | ------------------------------ | ------------------------------------------- 
+Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-release-notes#22jan19){: new_window} | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
+Collections created after the release of [SDU](/docs/services/discovery?topic=discovery-sdu#sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
+    
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+
+\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
+
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is synced (re-crawled), new documents are added, updated documents are modified to the current version, and documents deleted in the original data source remain in the collection as the version last stored.
 -  If you modify anything on the Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, Microsoft SharePoint 2016 On-Premise, web crawl, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
--  If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
+-  If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf?topic=discovery-sf-sources#gateway) for more information.
 -  Synchronization options are:
     -  Every five minutes: runs every five minutes
     -  Hourly: runs every hour
@@ -70,8 +77,8 @@ The following applies to all data sources:
 
 You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
--  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery-sf/connect.html#applevelbox) is recommended. You will need an administrator to approve your application.
--  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery-sf/connect.html#entlevelbox) is recommended.
+-  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery-sf?topic=discovery-sf-sources#applevelbox) is recommended. You will need an administrator to approve your application.
+-  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery-sf?topic=discovery-sf-sources#entlevelbox) is recommended.
 
 **Note:** The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
 
@@ -199,7 +206,7 @@ Other items to note when crawling Microsoft SharePoint Online:
 This beta feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
 -  **Sync my data** - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly.  
--  **Select language** - Choose the language of the websites from the list of supported languages. See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/language-support.html#supported-languages){: new_window} for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
+-  **Select language** - Choose the language of the websites from the list of supported languages. See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-language-support#supported-languages){: new_window} for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
 -  **URL group to sync** - Enter your URL and click the plus sign to add it to the URL group. To specify the **Crawl settings** for this URL group, click the **Cog** icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). 
 
 For this beta release, the number of web pages crawled will be limited, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
@@ -216,7 +223,7 @@ To connect to an on-premise data source, you first need to download, install, an
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 1.  Select the data source that you want to connect to. When you select an on-premise data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
 1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
-1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway/securegateway_install.html#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
+1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
 1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `appconnmssharep` and port: `80`.
 1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
@@ -226,7 +233,7 @@ After the connection is successful you can begin entering the credentials for yo
 ## SharePoint 2016 On-Premise
 {: #connectsp_op}
 
-Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premise data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf/connect.html#gateway) for more information.
+Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premise data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf?topic=discovery-sf-sources#gateway) for more information.
 {: note}
 
 The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
@@ -267,8 +274,8 @@ If you have documents that are not stored in Salesforce, Box, Microsoft SharePoi
 When creating your collection, remember:
 
 - The maximum file size that can be uploaded is 50MB.
-- When creating a collection, you can select the document language (English is the default). See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/language-support.html){: new_window} for the list of languages. Do not mix languages within the same collection.
-- You will configure your documents using [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/sdu.html){: new_window}.
+- When creating a collection, you can select the document language (English is the default). See [Language support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-language-support#language-support){: new_window} for the list of languages. Do not mix languages within the same collection.
+- You will configure your documents using [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-sdu#sdu){: new_window}.
 
 The following limits apply when uploading documents:
 
@@ -282,4 +289,4 @@ When using the {{site.data.keyword.discoveryshort}} service, uploading in-flight
 ## Labeling and deleting documents
 {: #source_customer_id}
 
-For information about GDPR, as well as assigning and deleting `customer_ ID` labels, see [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/information-security.html){: new_window} and [Specifying a customer_id ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/connect.html#specifying-a-customer_id-){: new_window}.
+For information about GDPR, as well as assigning and deleting `customer_ ID` labels, see [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-information-security#information-security){: new_window} and [Specifying a customer_id ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-sources#specifying-a-customer_id-){: new_window}.
