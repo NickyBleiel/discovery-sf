@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-04-04"
 
 subcollection: discovery-sf
 
@@ -43,12 +43,12 @@ To sign up for a free {{site.data.keyword.Bluemix}} account, go to the [{{site.d
 
 When creating an instance of {{site.data.keyword.discoveryshort}}, choose Washington, DC (US East) or Sydney (au-syd) as your region. 
 
-If you do not have an existing {{site.data.keyword.discoveryfull}} service plan, see [Discovery pricing plans ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans){: new_window} to review the benefits and limits of each plan. {{site.data.keyword.discoveryfull}} for Salesforce is not supported on Premium and Dedicated plans.
+If you do not have an existing {{site.data.keyword.discoveryfull}} plan, see [Discovery pricing plans ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans){: new_window} to review the benefits and limits of each plan. {{site.data.keyword.discoveryfull}} for Salesforce is not supported on Premium and Dedicated plans.
 
 For additional {{site.data.keyword.Bluemix}} resources, see [{{site.data.keyword.Bluemix}} Platform Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview?topic=overview-whatis-platform#overview){: new_window}.   
 
 
-## Connect to the Watson Discovery Service with your API Key
+## Connect to Watson Discovery with your API Key
 {: #key}
 
 After you have created your {{site.data.keyword.discoveryshort}} instance, the service will appear on the {{site.data.keyword.Bluemix}} dashboard. Click on your service to view the **Credentials** section. The API key is used for connecting your {{site.data.keyword.discoveryshort}} instance to {{site.data.keyword.discoveryfull}} for Salesforce.
