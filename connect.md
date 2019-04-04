@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
 
 subcollection: discovery-sf
 
@@ -36,7 +36,7 @@ With {{site.data.keyword.discoveryfull}} for Salesforce, you can connect to Sale
 
 If using the {{site.data.keyword.discoveryshort}} tooling, each collection can be configured to use a single data source; if using the API, you can send documents from multiple data sources into a single collection.
 
-The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you from the following data sources are crawled by the {{site.data.keyword.discoveryshort}} service:
+{{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you from the following data sources are crawled by {{site.data.keyword.discoveryshort}}:
 
 -  [Box](/docs/services/discovery-sf?topic=discovery-sf-sources#connectbox)
 -  [Salesforce](/docs/services/discovery-sf?topic=discovery-sf-sources#connectsf)
@@ -66,11 +66,11 @@ Collections created after the release of [SDU](/docs/services/discovery?topic=di
 -  If you modify anything on the Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, Microsoft SharePoint 2016 On-Premise, web crawl, or Box configuration screen and then click the **Save and Sync** button, a crawl is started (or restarted if one is already running) at that time.
 -  If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery-sf?topic=discovery-sf-sources#gateway) for more information.
 -  Synchronization options are:
-    -  Every five minutes: runs every five minutes
-    -  Hourly: runs every hour
-    -  Daily: runs every day between the hours of 00:00 and 06:00 in the specified time zone
-    -  Weekly: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
-    -  Monthly: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone  
+    -  `Every five minutes`: runs every five minutes
+    -  `Hourly`: runs every hour
+    -  `Daily`: runs every day between the hours of 00:00 and 06:00 in the specified time zone
+    -  `Weekly`: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
+    -  `Monthly`: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone  
 
 ## Box
 {: #connectbox}
@@ -284,7 +284,7 @@ The following limits apply when uploading documents:
     
 These limits are subject to change. 
 
-When using the {{site.data.keyword.discoveryshort}} service, uploading in-flight represents the document being uploaded and processed before it is added to the collection.
+When using {{site.data.keyword.discoveryshort}}, uploading in-flight represents the document being uploaded and processed before it is added to the collection.
 
 ## Labeling and deleting documents
 {: #source_customer_id}
