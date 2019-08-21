@@ -240,7 +240,7 @@ The following credentials are required to connect to a SharePoint 2016 data sour
 
 -  **Username** - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
 -  **Password** - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
--  **Web Application Url** - The SharePoint 2016 `web_application_url`; for example, https://sharepointwebapp.com:8443. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
+-  **Web Application Url** - The SharePoint 2016 `web_application_url`; for example, `https://sharepointwebapp.com:8443`. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
 -  **Domain** - The `domain` of the SharePoint 2016 account.
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
