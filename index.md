@@ -4,6 +4,8 @@ copyright:
   years: 2015, 2018, 2019
 lastupdated: "2019-04-04"
 
+keywords: discovery,discovery for salesforce,IBM cloud,cognitive,exploration,insights,data,unstructured data,query,enrich,ai,artificial intelligence,watson
+
 subcollection: discovery-sf
 
 ---
